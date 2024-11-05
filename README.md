@@ -10,6 +10,9 @@ Integrantes:
 - Marcos Vinicius Viana Pavão
 - Wanderson Martins de Oliveira
 
+## Requerimentos:
+* Node v22.0  
+* pnpm  
 
 ## Instalação
 
