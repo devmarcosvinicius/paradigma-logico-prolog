@@ -16,5 +16,5 @@ Integrantes:
 Instalação de dependencia:  
 `pnpm i`
 
-Inicie a aplicação local:
+Inicie a aplicação local:  
 `pnpm dev`
