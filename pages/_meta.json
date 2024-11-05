@@ -7,17 +7,5 @@
   "historia": "História",
   "fatos_do_prolog": "Fatos Sobre o Prolog",
   "prolog_na_pratica": "Prolog na Prática",
-  "referencias": "Referências",
-  "another": "Another Page",
-  "advanced": "Paradigma Lógico",
-  "about": {
-    "title": "Conceito",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
-  }
+  "referencias": "Referências"
 }
