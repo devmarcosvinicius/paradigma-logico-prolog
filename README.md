@@ -1,23 +1,20 @@
-# Nextra Docs Template 
+# Paradigma Lógico - Prolog 
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+## Grupo Branco 3
+Integrantes:
+- Andrey Luiz Carvalho da Silva
+- Cauã Brito da Silva
+- Eduardo Alexandro Alves Machado
+- Gabriel Aías Marques Mafra
+- Karine Figueredo de Macedo
+- Marcos Vinicius Viana Pavão
+- Wanderson Martins de Oliveira
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+## Instalação
 
-## Quick Start
+Instalação de dependencia:  
+`pnpm i`
 
-Click the button to clone this repository and deploy it on Vercel:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
-
-## Local Development
-
-First, run `pnpm i` to install the dependencies.
-
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
-## License
-
-This project is licensed under the MIT License.
+Inicie a aplicação local:
+`pnpm dev`
