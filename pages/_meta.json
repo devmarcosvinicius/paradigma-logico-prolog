@@ -1,9 +1,16 @@
 {
-  "index": "Introduction",
+  "index": "Início",
+  "conceito": "Conceito de Paradigma",
+  "sobre": "Sobre",
+  "fatos": "Outros Fatos",
+  "linha_do_tempo": "Linha do Tempo",
+  "historia": "História",
+  "fatos_do_prolog": "Fatos Sobre o Prolog",
+  "prolog_na_pratica": "Prolog na Prática",
   "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "advanced": "Paradigma Lógico",
   "about": {
-    "title": "About",
+    "title": "Conceito",
     "type": "page"
   },
   "contact": {

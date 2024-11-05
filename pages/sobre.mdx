@@ -1,0 +1,86 @@
+## Curiosidades
+### Fatos
+
+- Fatos representam <strong>informações ou estados verdadeiros </strong> sobre o problema ou o mundo.
+- No contexto do paradigma lógico, os fatos são declarações que afirmam que algo é verdadeiro sem a necessidade de provar ou derivar essa verdade.
+- <strong>Exemplo:</strong>
+    \
+    \
+    <p><strong> Este fato afirma que João é o pai de Maria</strong></p>
+
+### Regras
+
+- Regras são <strong>afirmações condicionais </strong> que definem relações entre fatos. Elas seguem a estrutura "Se X, então Y".
+- Regras permitem derivar novos fatos a partir de fatos existentes.
+- Uma regra é composta de uma <strong>cabeça</strong> (o que se quer provar) e um <strong> corpo</strong>  (condições que precisam ser satisfeitas para a cabeça ser verdade).
+- <strong> Exemplo:</strong>
+    \
+    <p>avo(X, Y) :- pai(X, Z), pai(Z, Y).</p>
+    \
+    <p><strong> Esta regra afirma que X é avô de Y se X é pai de Z e Z é pai de Y</strong></p>
+
+### Consultas
+
+- Consultas são <strong>perguntas </strong> feitas ao sistema lógico para verificar se uma determinada proposição é verdadeira com base nos fatos e regras disponíveis.
+- Quando uma consulta é feita, o sistema tenta <strong> provar</strong> a consulta, usando a <strong> unificação</strong> e a resolução lógica.
+- <strong>Exemplo:</strong>
+    <p> ?- pai(joao, maria).</p>
+
+    <p><strong> Esta consulta pergunta ao sistema se João é pai de Maria. O sistema responderá "sim" ou "não", dependendo dos fatos e regras existentes.</strong></p>
+
+### Unificação
+
+- A<strong> unificação</strong> é o processo de <strong> casar variáveis</strong> com valores ou outras variáveis de modo que as proposições ou termos se tornem iguais.
+- No paradigma lógico, a unificação é essencial para a inferência, pois permite combinar diferentes fatos e regras para resolver uma consulta.
+- Se duas expressões podem ser tornadas iguais por substituição de variáveis, elas são unificadas.
+- <strong>Exemplo:</strong>
+    <p>?- pai(joao, X)</p>
+
+    <p><strong> O sistema tentará unificar a variável X com um valor que satisfaça a consulta (neste caso, X = maria, com base no fato definido anteriormente).</strong></p>
+
+### Como esses Elementos Funicionam Juntos
+
+- <strong> Fatos</strong> fornecem as informações básicas, como "João é pai de Maria".
+- <strong> Regras</strong> permitem derivar novos fatos. Por exemplo, se você tem a regra que "se X é pai de Y e Y é pai de Z, então X é avô de Z", você pode inferir que João é avô de algum neto.
+- <strong> Consultas</strong> são como fazemos perguntas ao sistema lógico, que então tenta encontrar uma resposta com base nos fatos e regras.
+- <strong> Unificação</strong> é o processo pelo qual o sistema resolve essas consultas, casando variáveis com valores para verificar se as proposições podem ser satisfeitas.
+
+### Exemplo Completo
+
+- **Fatos:**  
+    pai(joao, maria).  
+
+    pai(maria, ana).  
+
+    mae(sara, maria).  
+
+    **Aqui estamos dizendo que:**  
+
+    1.João é pai da Maria.  
+
+    2.Maria é mãe da Ana.  
+
+    3.Sara é mãe da Maria.  
+
+### Exemplo Completo
+- **Regras:**  
+    Agora, vamos definir uma regra para descobrir quem é avô de quem:  
+
+    avo(X, Y) :- pai(X, Z), pai(Z, Y).  
+
+    **Essa regra basicamente fala:**  
+
+    X é avô de Y se X for pai de Z e Z for pai de Y.
+
+### Exemplo Completo
+
+- **Consultas:**  
+    Agora, podemos fazer uma pergunta ao sistema. Por exemplo, queremos saber se o João é avô da Ana:  
+
+    ?- avo(joao, ana).  
+
+    - O sistema vai procurar nos fatos e nas regras para ver se essa afirmação faz sentido. E a resposta seria:  
+
+        true.  
+
+    Ou seja, o sistema confirmou que João é realmente o avô de Ana. Nesse exemplo, o **paradigma lógico** funciona declarando o que é verdade (fatos e regras), e depois o sistema faz as deduções necessárias pra responder às suas perguntas.

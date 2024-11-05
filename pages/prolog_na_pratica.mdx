@@ -1,0 +1,142 @@
+## Prolog na Prática
+
+- **Prolog** é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifico quê e o **que lhe deve ser feito**. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/IA à lógica e à computação numérica e simbólica.
+- **Conceitos Importante:** todo o input escrito na prompt, tem de terminar com um ponto final.
+
+## Termos
+
+- Um dos conceitos importantes em Prolog é otermo, que consiste numa variável, constante, ou função que as aceita como argumentos (um termo composto, portanto).
+- Quanto às **constantes**, estas podem ser átomos ou números. Os átomos podem ser:  
+como "nomes" numa LP normal (ex: postMalone, ciDADE, zero), começando sempre por minúscula; cadeias de carateres, utilizando plicas. Aqui, a primeira letra pode ser maiúscula (ou até _). São exemplos 'cidade', 'LeBron' e '_poster'. Um átomo especial \(! , \[ , \] , \; , \{ , \} , \+ , \- , \* , \/ , \*\*\), sendo estes últimos pouco utilizados.
+
+## Variáveis
+
+- Começam sempre por maiúscula ou "_" (sendo que "_" por si só é a **variável anónima** , utilizada quando o valor da variável não tem interesse numa expressão).
+- Várias ocorrências de variáveis anónimas numa mesma expressão correspondem a **ocorrências distintas** , e devem ser tratadas como tal - **não é necessariamente a mesma variável em cada sítio.**
+- **Termos Compostos:** correspondem à aplicação de um functor a um dado número de argumentos. Um functor é necessariamente um átomo. Existem funções pré-embutidas em Prolog, tais como "+, *, /". São exemplos "vencedor(X), 'vencedor'(_X), +(5, X), 5 + X". De realçar que escrever "+(5, X)" e "5 + X" é exatamente a mesma coisa!
+- **Literais:** corresponde à aplicação de um predicado ao número apropriado de termos (devolve verdadeiro ou falso). Um literal de aridade (nº de argumentos) zero é um átomo. Sintaticamente, não existe diferença entre termos compostos e literais - decidir se é uma coisa ou outra depende do contexto. São exemplos mae(Marge, Bart), filho(Bart, Marge).
+
+## Leitura/Escrita
+
+- **O Prolog**, tal como as outras linguagens de programação, também apresenta instruções de leitura e escrita de dados, instruções estas que correspondem a predicados.
+- **Instruções de Leitura:** Utilizamos, para leitura, o predicado "read/1", que unifica o termo escrito como input com o termo argumento. Para além de na "prompt " termos de utilizar o ponto final, temos de o escrever também no input.
+  
+```pl
+?- read(a).
+
+a.
+
+true.
+```
+
+## Operadores de Corte, Negação, Paragem/Execução Forçada
+- **Operador de Corte "!"** é utilizado para indicar que, num programa onde um dado ramo produz soluções, devemos seguir esse ramo (algo do género "se já sabes que o que fizeste está bem, segue em frente."). Tal como o `break` de outras linguagens, só deve ser utilizado quando estritamente necessário (e, quando utilizado, devidamente comentado), visto que pode alterar inadvertidamente a semântica declarativa do programa.  
+
+Veja o exemplo abaixo:
+
+```pl
+% remove_repetidos(L1, L2)
+
+remove_repetidos([], []).
+
+remove_repetidos([P|R], L) :-
+
+membro(P, R), !, % caso seja membro, nem precisa de ir à cláusula seguinte
+
+remove_repetidos(R, L).
+
+remove_repetidos([P|R], [P|L]) :- remove_repetidos(R, L).
+
+% a interação resultante é correta:
+
+?- remove_repetidos([a,c,c,a,b,c], L).
+
+L = [a,b,c].
+```
+
+- **Falhando Forçado O predicado "fail/0"** tem duas utilidades principais, sendo que apenas uma delas é vulgarmente utilizada. O seu propósito é criar um nó falhado propositadamente. O primeiro propósito, menos usual, é para obter todas as respostas a um objetivo de uma vez, em vez de ter de utilizar o ";" para verificar todas as respostas. Podemos observar uma interação deste género abaixo:
+
+Veja o exemplo abaixo:
+
+```
+?- membro(X,[1,2,3]), writeln(membro(X,[1,2,3])), fail.
+
+membro(1,[1,2,3])
+
+membro(2,[1,2,3])
+
+membro(3,[1,2,3])
+
+false.
+
+% esta interação é realizada sem a necessidade de ;
+
+% a interação resultante é correta:
+
+% o próprio ; também não aparece
+```
+
+- O **segundo propósito**, mais utilizado e bastante poderoso, **é utilizar o "fail" em conjunto com o operador de corte**.  
+  Um exemplo bastante simples para ilustrar a sua utilidade é o de **verificar se duas listas são disjuntas**.  
+  Duas listas são disjuntas quando não têm nenhum membro em comum, pelo que basta haver um para o objetivo retornar "false".  
+
+Assim sendo, é interessante combinar um operador de corte com um "fail", tal que:
+
+```
+% disjuntas(L1, L2)
+
+disjuntas([], _) :- !.
+
+disjuntas(_, []) :- !.
+
+% caso seja membro, nem precisa de verificar mais, é falso de certeza
+
+disjuntas([P1|_], L2) :-
+
+member(P1, L2),
+
+!, fail.
+
+disjuntas([_|R1], L2) :- disjuntas(R1, L2).
+```
+
+- **Negação**: A combinação mencionada acima, combinar o `fail` com o corte, permite definir a negação por falhanço , diferente da negação lógica. Esta negação é baseada na hipótese do mundo fechado, mencionada na introdução ao Prolog. Se o Prolog não consegue derivar algo, assume que é falso. Em Prolog, este tipo de negação é utilizado através de um meta-predicado, `\+`, aplicado a literais.  
+
+Observemos o exemplo:
+```
+membro(1,[1,2,3])
+
+membro(2,[1,2,3])
+
+membro(3,[1,2,3])
+
+false.
+
+% esta interação é realizada sem a necessidade de ;
+
+% a interação resultante é correta:
+
+% o próprio ; também não aparece
+```
+
+- **Execução Forçada:** Apesar de teoricamente uma regra ter o formato ```< literal > :- < literais >```, podemos supor a hipótese de " literal " ser "nada". A regra ficaria, então, com um aspeto do género ```:- < literais >```, algo do género "para provar "nada", prove os literais a seguir a ```:-```.  
+
+    Pode ser bastante útil em casos de tentar fazer debug (exemplo ```:- writeln('Este é o passo < n > do programa')```), ou até mesmo para definir certos acontecimentos que acontecem sempre ao carregar um certo ficheiro no Prolog.  
+
+Por exemplo, se utilizarem a GUI do SWI-Prolog, podem ir às definições e ao "user init file " e escrever alguns comandos que serão forçosamente executados, como por exemplo:  
+
+```
+% dark mode
+
+:- use_module(library(theme/dark)).
+
+% mensagem ao entrar - deverão ver isto ao abrir o SWI-Prolog
+
+:- writeln('This is a test!').
+
+% se estiverem na vossa diretoria default e quiserem abrir x ficheiros
+
+% pode ser útil no projeto para não andarem sempre a abrir o ficheiro
+
+:- []..
+```
