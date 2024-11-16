@@ -3,12 +3,12 @@ import time
 # Função principal para resolver a Torre de Hanoi
 def hanoi_main():
     N = int(input("Digite o número de discos: "))
-    start_time = time.time()
+    tempo_inicial = time.time()
     hanoi(N, 'Origem', 'Destino', 'Auxiliar')
-    end_time = time.time()
-    elapsed_time_seconds = end_time - start_time
-    elapsed_time_ms = elapsed_time_seconds * 1000
-    print(f'\nTempo de execução: {elapsed_time_ms:.4f} ms ou {elapsed_time_seconds:.4f} segundos')
+    tempo_final = time.time()
+    tempo_em_segundos = tempo_final - tempo_inicial
+    tempo_em_ms = tempo_em_segundos * 1000
+    print(f'\nTempo de execução: {tempo_em_ms:.4f} ms ou {tempo_em_segundos:.4f} segundos')
 
 # Função recursiva para mover os discos
 def hanoi(N, origem, destino, auxiliar):
