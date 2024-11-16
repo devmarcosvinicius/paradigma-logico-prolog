@@ -4,9 +4,9 @@ Este projeto explora o **Paradigma Lógico** usando a linguagem de programação
 Ele foi desenvolvido como uma ferramenta para explicar os conceitos de lógica em programação e demonstrar a aplicação prática desses conceitos.
 
 ## 📚 O Projeto
-- **Website**: explora o paradigma lógico e a linguagem de programação Prolog.
-- **Torre de Hanoi**: a aplicação feita em prolog recebe a quantidade de discos desejada pelo usuario e resolve o problema mostrando o passo-a-passo.
-- **Cruzadinha**: testa os conhecimentos do paradigma lógico e de Prolog.
+- **Website** [Repositório](https://github.com/devmarcosvinicius/paradigma-logico-prolog) e [Website](https://paradigma-logico-prolog.vercel.app/): explora o paradigma lógico e a linguagem de programação Prolog.
+- **Torre de Hanoi** [Repositório](https://github.com/devmarcosvinicius/paradigma-logico-prolog/tree/main/torre%20de%20hanoi): a aplicação feita em prolog recebe a quantidade de discos desejada pelo usuario e resolve o problema mostrando o passo-a-passo.
+- **Qual a resposta correta? (Cruzadinha)** [Repositório](https://github.com/cauamogli/cauamogli.github.io) e [Jogo](https://cauamogli.github.io/): testa os conhecimentos sobre o paradigma lógico e de Prolog.
 
 ## 📋 Requerimentos
 
@@ -31,6 +31,7 @@ Ele foi desenvolvido como uma ferramenta para explicar os conceitos de lógica e
 Este projeto utiliza uma combinação de linguagens e frameworks:
 
 - HTML
+- Markdown
 - CSS
 - JavaScript
 - Nextra (framework para sites com Next.js)
