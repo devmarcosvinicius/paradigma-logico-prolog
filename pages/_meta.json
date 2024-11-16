@@ -1,9 +1,17 @@
 {
   "index": "Início",
+  "paradigma": {
+    "type": "separator",
+    "title": "Paradigma Lógico"
+  },
   "conceito": "Conceito de Paradigma",
   "sobre": "Sobre",
   "fatos": "Outros Fatos",
   "linha_do_tempo": "Linha do Tempo",
+  "prolog": {
+    "type": "separator",
+    "title": "Prolog"
+  },
   "historia": "História",
   "fatos_do_prolog": "Fatos Sobre o Prolog",
   "prolog_na_pratica": "Prolog na Prática",
