@@ -4,12 +4,12 @@
 hanoi :-
     write('Digite o numero de discos: '),
     read(N),
-    get_time(tempoInical),
+    get_time(StartTime),
     hanoi(N, 'Origem', 'Destino', 'Auxiliar'),
-    get_time(tempoFinal),
-    tempoEmMs is (tempoFinal - tempoInical) * 1000,
-    tempoEmSegundos is tempoEmMs / 1000,
-    format('\nTempo de execucao: ~2f ms ou ~2f segundos~n', [tempoEmMs, tempoEmSegundos]).
+    get_time(EndTime),
+    ElapsedTime is (EndTime - StartTime) * 1000,
+    ElapsedTimeSecs is ElapsedTime / 1000,
+    format('\nTempo de execucao: ~2f ms ou ~2f segundos~n', [ElapsedTime, ElapsedTimeSecs]).
 
 % Predicado recursivo para mover os discos
 hanoi(1, Origem, Destino, _) :-
