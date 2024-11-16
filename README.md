@@ -6,6 +6,7 @@ Ele foi desenvolvido como uma ferramenta para explicar os conceitos de lógica e
 ## 📚 O Projeto
 - **Website**: explora o paradigma lógico e a linguagem de programação Prolog.
 - **Torre de Hanoi**: a aplicação feita em prolog recebe a quantidade de discos desejada pelo usuario e resolve o problema mostrando o passo-a-passo.
+- **Cruzadinha**: testa os conhecimentos do paradigma lógico e de Prolog.
 
 ## 📋 Requerimentos
 
